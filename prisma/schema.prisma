@@ -1,0 +1,29 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Cases {
+  id        Int     @id @default(autoincrement())
+  name      String
+  shortname String
+  price     Float
+  Skins     Skins[]
+}
+
+model Skins {
+  id           Int    @id @default(autoincrement())
+  case         Cases? @relation(fields: [case_id], references: [id])
+  case_id      Int?
+  skin_name    String
+  market_price Float
+  rare         String
+  quality      String
+}
