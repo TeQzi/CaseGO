@@ -4,8 +4,14 @@ import Header from '../component/header';
 import Footer from '../component/footer';
 
 export default function Login() {
-    const [username, setUserName] = useState();
-    const [password, setPassword] = useState();
+    interface UserData {
+        username: string;
+        password: string;
+      }
+      
+      const [username, setUserName] = useState(null);
+    const [password, setPassword] = useState(null);
+
     const handleSubmit = async e => {
         e.preventDefault();
         console.log(username, password)
