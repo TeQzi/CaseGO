@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Header() {
     return (
 
@@ -10,7 +12,10 @@ export default function Header() {
 
                     <nav>
                         <a href="#" className="nav__link">F.A.Q</a>
-                        <a href="/sign" className="nav__link">Войти</a>
+                        <Link href="/sign">
+                             <a className="nav__link"> Войти</a>
+                        </Link>
+                        
                     </nav>
 
                 </div>

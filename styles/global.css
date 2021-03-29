@@ -22,21 +22,6 @@ li, ul {
   list-style: none;
 }
 
-*,
-*:before,
-*:after{
-    box-sizing: border-box;
-}
-
-.container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-h1,h2,h3,h4,h5,h6{
-    margin: 0;
-}
 
 .App{
   margin-top: 150px;
@@ -162,17 +147,14 @@ h1,h2,h3,h4,h5,h6{
   transition: transform .3s ease;
 }
 
-.case__link:hover .img{
+.img:hover{
   transform: scale(1.1)
 }
 
-.case__link:hover .case__name{
-  color:rgba(255, 255, 0, 0.897)
-}
 
-.case__link:hover .case__price{
-  color:rgba(255, 255, 0, 0.897)
-}
+.text__fields:hover{color:rgba(255, 255, 0, 0.897);}
+
+
 
 .footer {
     position: fixed; /* Фиксированное положение */
@@ -218,21 +200,6 @@ body{
   font-family: 'Montserrat', sans-serif;
 }
 
-img {
-vertical-align: middle;
-border-style: none;
-}
-
-a {
-/* color: #deac0b; */
-text-decoration: none;
-transition: all .3s ease;
-}
-
-li, ul {
-list-style: none;
-}
-
 *,
 *:before,
 *:after{
@@ -247,41 +214,6 @@ list-style: none;
 
 h1,h2,h3,h4,h5,h6{
   margin: 0;
-}
-
-
-/* Navigation */
-
-.nav__link{
-  display: inline-block;
-  vertical-align: top;
-  margin: 0 10px;
-  color: #fff;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: color .2s linear;
-}
-
-.nav__link:after{
-  content: "";
-  width: 100%;
-  height: 3px;
-  display: block;
-
-  background-color: rgba(255, 255, 0, 0.897);
-  opacity: 0;
-  /* position: absolute; */
-  top: 100%;
-  left: 0;
-  z-index: 1;
-}
-
-.nav__link:hover{
-  color: yellow;
-}
-
-.nav__link:hover:after{
-  opacity: 1;
 }
 
 /* main__field */
@@ -349,9 +281,8 @@ h1,h2,h3,h4,h5,h6{
   
   position: relative;
   flex-shrink: 0;
-  width: 16.6666%;
-  height: 140px;
-  margin-top: 23px;
+  margin-right: 20px;
+  margin-top: 20px;
 }
 .item{
   position: relative;
@@ -414,4 +345,63 @@ h1,h2,h3,h4,h5,h6{
   background-color: #c5c5c5;
   border-radius:5px;
   box-shadow: 0px 0px 10px #000;
+}
+
+
+
+
+
+
+
+
+body {font-family: Arial, Helvetica, sans-serif;}
+
+input[type=text], input[type=password] {
+
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.buttonn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.buttonn:hover {
+    opacity: 0.8;
+}
+
+.containerr {
+    background-color:#f1f1f1;
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+}
+
+.labell{
+    color: white;
+}
+
+
+.terms{
+  color: white;
 }

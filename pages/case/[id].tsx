@@ -1,15 +1,15 @@
 
 import { PrismaClient } from "@prisma/client";
 import Image from 'next/image';
-import CaseSpining from '../../component/SkinList'
-import Footer from '../../component/footer'
+import CaseSpining from '../../component/SkinList';
+import Footer from '../../component/footer';
 import Header from "../../component/header";
 
 const prisma = new PrismaClient()
 
 export function getAllPostIds(Cases) {
 
-    return Cases.map(fileName => {
+    return Cases.map((fileName: { shortname: any; price: any; }) => {
         return {
             params: {
                 id: fileName.shortname,
@@ -18,7 +18,6 @@ export function getAllPostIds(Cases) {
         }
     })
 }
-
 
 export async function getStaticProps({ params }) {
     const caseInfo = await prisma.cases.findMany({
@@ -43,7 +42,6 @@ export async function getStaticPaths() {
     const paths = pathsAll.map((path) => {
         delete path['params'].price
         return path
-
     })
 
     return {
@@ -53,28 +51,30 @@ export async function getStaticPaths() {
 }
 
 function getSkinsBg(rare) {
+    console.log(rare)
     if (rare === "1") {
         return "item--milspec"
     }
-    else if (rare === 2) {
+    else if (rare === "2") {
         return "item--restricted"
     }
-    else if (rare === 3) {
+    else if (rare === "3") {
         return "item--classified"
     }
-    else if (rare === 4) {
+    else if (rare === "4") {
         return "item--covert"
     }
-    else if (rare === 5) {
+    else if (rare === "5") {
+        console.log(rare)
         return "item--knife"
     }
 }
 
 
-
 export default function Post({ caseInfo, skinList }) {
     const casename = caseInfo[0]['name'];
     const price = caseInfo[0]['price'];
+    const path_case_img = "/assets/cases/" + caseInfo[0]['id'] + ".webp";
 
     let skin;
 
@@ -87,6 +87,7 @@ export default function Post({ caseInfo, skinList }) {
             const skinName = skinInfo[1];
 
             const className = getSkinsBg(rare);
+
             
             return (
                 <li key={id} className="items">
@@ -110,7 +111,6 @@ export default function Post({ caseInfo, skinList }) {
         skin = <h1 className="content__case"> Содержимое кейса временно недоступно </h1>
     }
 
-
     return (
         <>
         <Header></Header>
@@ -118,15 +118,15 @@ export default function Post({ caseInfo, skinList }) {
             <div className="container">
                 <div className="opencase__field">
                     <h1 className="case__name_"> {casename} </h1>
+                    
                     <div className="display__opening">
-                        <span className="image"> <img src="/assets/1.webp" alt="" /> </span>
+                        <span className="image"> <img src={path_case_img} alt="" /> </span>
                     </div>
 
 
                     <div className="open__case">
                         <CaseSpining
-                            price={price}
-                            
+                            price={price} skins_list={skinList}
                         />
                     </div>
 
