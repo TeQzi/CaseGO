@@ -13,7 +13,8 @@ export default function Sign() {
                 password: event.target.psw.value
             }),
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
             },
             method: 'POST'
         })
