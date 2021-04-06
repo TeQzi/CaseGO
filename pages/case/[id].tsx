@@ -77,15 +77,16 @@ export default function Post({ caseInfo, skinList }) {
     const path_case_img = "/assets/cases/" + caseInfo[0]['id'] + ".webp";
 
     let skin;
+    let SkinsAviability = false;
 
     // Узнать как надо узнать длинну массива чтобы 
     if (skinList) {
+        SkinsAviability = true
         skin = skinList.map(({ id, skin_name, rare }) => {
             const img = '/assets/skins/' + id + '.png';
             const skinInfo = skin_name.split("|");
             const gunName = skinInfo[0];
             const skinName = skinInfo[1];
-
             const className = getSkinsBg(rare);
 
             
@@ -107,9 +108,7 @@ export default function Post({ caseInfo, skinList }) {
         })
 
     }
-    else{
-        skin = <h1 className="content__case"> Содержимое кейса временно недоступно </h1>
-    }
+
 
     return (
         <>
@@ -135,7 +134,7 @@ export default function Post({ caseInfo, skinList }) {
 
                         <ul className="list">
                             {skin}
-
+                            {!SkinsAviability && (<h1 className="content__case"> Содержимое кейса временно недоступно </h1>)}
                         </ul>
                     </div>
 

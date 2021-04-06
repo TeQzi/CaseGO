@@ -400,7 +400,12 @@ span.psw {
 .labell{
     color: white;
 }
-
+.asd{
+  color:white;
+}
+span, label, p{
+  color: white;
+}
 
 .terms{
   color: white;
